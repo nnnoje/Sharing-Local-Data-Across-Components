@@ -1,0 +1,368 @@
+.services-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+  background: #1a1a1a;
+  color: white;
+  padding: 4rem 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.hero i {
+  margin-right: 1rem;
+}
+
+/* Search Section */
+.search-section {
+  margin-bottom: 3rem;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.2rem 3rem 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #1a1a1a;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.clear-btn:hover {
+  background: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.clear-btn i {
+  font-size: 0.9rem;
+}
+
+/* Results Info */
+.results-info {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.results-info strong {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+/* Loading State */
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1a1a1a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  font-size: 1.2rem;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+/* Error State */
+.error-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff5f5;
+  border: 2px solid #1a1a1a;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.error-state i {
+  font-size: 3rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.error-state p {
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.retry-btn {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* No Results State */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.no-results i {
+  font-size: 4rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.no-results strong {
+  color: #1a1a1a;
+}
+
+.clear-search-btn {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-search-btn:hover {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Service Card */
+.service-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: #1a1a1a;
+  transition: height 0.3s ease;
+}
+
+.service-card:hover::before {
+  height: 100%;
+}
+
+.service-card:hover {
+  border-color: #1a1a1a;
+  transform: translateX(10px);
+  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Header */
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.service-id {
+  background: #1a1a1a;
+  color: white;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.service-user {
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Service Title */
+.service-title {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+/* Service Body */
+.service-body {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    padding: 0 1rem 3rem 1rem;
+  }
+
+  .hero {
+    padding: 3rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .search-section {
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: 1rem 2.5rem 1rem 1rem;
+  }
+
+  .service-title {
+    font-size: 1.2rem;
+  }
+}

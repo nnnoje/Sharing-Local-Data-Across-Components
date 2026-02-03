@@ -1,0 +1,74 @@
+<div class="services-container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1><i class="fas fa-cogs"></i> Services</h1>
+    <p>Browse all available services and resources</p>
+  </div>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        placeholder="Search by title or body..."
+        class="search-input"
+      />
+      <button
+        *ngIf="searchQuery"
+        (click)="clearSearch()"
+        class="clear-btn"
+        title="Clear search"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Results Counter -->
+    <div *ngIf="!isLoading && !hasError" class="results-info">
+      <p *ngIf="searchQuery">
+        Found <strong>{{ resultsCount }}</strong> result<span *ngIf="resultsCount !== 1">s</span>
+        for "<strong>{{ searchQuery }}</strong>"
+      </p>
+      <p *ngIf="!searchQuery">
+        Showing <strong>{{ resultsCount }}</strong> service<span *ngIf="resultsCount !== 1">s</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading services...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="hasError && !isLoading" class="error-state">
+    <i class="fas fa-exclamation-triangle"></i>
+    <p>{{ errorMessage }}</p>
+    <button (click)="loadPosts()" class="retry-btn">Try Again</button>
+  </div>
+
+  <!-- Services List -->
+  <div *ngIf="!isLoading && !hasError" class="services-list">
+    <!-- Posts Grid -->
+    <div *ngIf="filteredPosts.length > 0" class="services-grid">
+      <div *ngFor="let post of filteredPosts" class="service-card">
+        <div class="service-header">
+          <span class="service-id">ID: {{ post.id }}</span>
+          <span class="service-user">User {{ post.userId }}</span>
+        </div>
+        <h3 class="service-title">{{ post.title | uppercase }}</h3>
+        <p class="service-body">{{ post.body | truncate:200 }}</p>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="filteredPosts.length === 0" class="no-results">
+      <i class="fas fa-search"></i>
+      <p>No services found matching "<strong>{{ searchQuery }}</strong>"</p>
+      <button (click)="clearSearch()" class="clear-search-btn">Clear Search</button>
+    </div>
+  </div>
+</div>
